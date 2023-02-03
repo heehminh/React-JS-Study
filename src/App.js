@@ -1,32 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
+import List from "./components/List";
 
 export default function App() {
 
-  const [todoData, setTodoData] = useState([])
-  const [value, setValue] = useState("")
+  const [todoData, setTodoData] = useState([]);
+  const [value, setValue] = useState("");
   
-  const btnStyle = {
-    color: "#fff",
-    border: "none",
-    padding: "5px 9px",
-    borderRadius: "50%",
-    cursor: "pointer",
-    float: "right",
-  };
-
-  const getStyle = (completed) => {
-    return {
-      padding: "10px",
-      borderBottom: "1px #ccc dotted",
-      textDecoration: completed ? "line-through" : "none", // 삼항연산자
-    };
-  };
-
-  const handleClick = (id) => {
-    let newToDoData = todoData.filter(data => data.id !== id)
-    setTodoData(newToDoData);
-  };
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -51,36 +31,15 @@ export default function App() {
     setValue("");
   };
 
-  const handleCompleteChange = (id) => {
-    let newToDoData = todoData.map((data) => {
-      if (data.id === id) {
-        data.completed = !data.completed;
-      }
-      return data;
-    });
-    setTodoData(newToDoData);
-  }
-
-  // 클래스형 컴포넌트 안에서는 render 안에 UI를 작성
-
   return(
     <div className="container">
       <div className="todoBlock">
         <div className="title">
           <h1>할 일 목록</h1>
         </div>
-        {todoData.map((data) => (
-            <div style={getStyle(data.completed)} key={data.id}>
-            <p>
-              <input 
-              type="checkbox" 
-              onChange= {() => handleCompleteChange(data.id)}
-              defaultChecked={false} />
-              {" "}{data.title}
-              <button style={btnStyle} onClick={() => handleClick(data.id)}>x</button>
-            </p>
-          </div>
-        ))}
+        
+        {/* props로 내려주기 */}
+        <List todoData={todoData} setTodoData={setTodoData} />
 
         <form style={{display: "flex"}} onSubmit={handleSubmit}>
           <input
