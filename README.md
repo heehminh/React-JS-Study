@@ -1,5 +1,10 @@
+# 23-React-JS-ToDo
+ToDo 앱을 예시로 React.js를 실습합니다. <br /> <br />
+ <br/>
+<a href="https://vivacious-pencil-435.notion.site/React-js-ToDo-1caed0a8d0ec45279126cc2167cc3abd"> Notion: [React] Todo</a>
+
+
 # Getting Started with Create React App
-https://vivacious-pencil-435.notion.site/ToDo-74c6a84d232f48e2825bbc608dfbf382
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
