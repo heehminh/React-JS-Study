@@ -3,8 +3,12 @@ import "./App.css";
 import Form from "./components/Form";
 import Lists from "./components/Lists";
 
+const initialToDoData = localStorage.getItem("todoData")
+  ? JSON.parse(localStorage.getItem("todoData"))
+  : [];
+
 export default function App() {
-  const [todoData, setTodoData] = useState([]);
+  const [todoData, setTodoData] = useState(initialToDoData);
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -21,6 +25,7 @@ export default function App() {
     // 3) 원래 있던 할 일에 새로운 할 일 더해주기 (전개연산자)
     // 입력란에 있던 글씨 지워주기
     setTodoData((prev) => [...prev, newToDo]);
+    localStorage.setItem("todoData", JSON.stringify([...todoData, newToDo]));
     setValue("");
   };
 
@@ -28,12 +33,14 @@ export default function App() {
     (id) => {
       let newToDoData = todoData.filter((data) => data.id !== id);
       setTodoData(newToDoData);
+      localStorage.setItem("todoData", JSON.stringify(newToDoData));
     },
     [todoData]
   ); // 콜백함수, 의존성 배열 (todoData가 변할때 함수를 다시 생성)
 
   const handleRemoveClick = () => {
     setTodoData([]);
+    localStorage.setItem("todoData", JSON.stringify([]));
   };
 
   return (
