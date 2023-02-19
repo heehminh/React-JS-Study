@@ -2,7 +2,7 @@ import React from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import List from "./List";
 
-export default function Lists({ todoData, setTodoData }) {
+const Lists = React.memo(({ todoData, setTodoData }) => {
   const handleEnd = (result) => {
     // result 매개변수에는 source 항목 및 대상 위치와 같은
     // 드래그 이벤트에 대한 정보가 포함된다.
@@ -55,4 +55,6 @@ export default function Lists({ todoData, setTodoData }) {
       </DragDropContext>
     </div>
   );
-}
+});
+
+export default Lists;

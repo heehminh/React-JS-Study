@@ -17,6 +17,7 @@ export default function App() {
       title: value,
       completed: false,
     };
+
     // 3) 원래 있던 할 일에 새로운 할 일 더해주기 (전개연산자)
     // 입력란에 있던 글씨 지워주기
     setTodoData((prev) => [...prev, newToDo]);
