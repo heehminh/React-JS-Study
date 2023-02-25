@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Timer from "./component/Timer";
 
 function App() {
+  // (1) useEffect 사용법
   const [count, setCount] = useState(1);
   const [name, setName] = useState("");
 
@@ -38,12 +40,25 @@ function App() {
     console.log("마운트될때만 1회실행");
   }, []);
 
+  // (2) cleanUp 사용법
+  const [showTimer, setShowTimer] = useState(false);
+
   return (
     <div>
-      <button onClick={handleCountUpdate}>Update</button>
-      <span>count: {count}</span>
-      <input type="text" value={name} onChange={handleInputChange} />
-      <span>{name}</span>
+      <div>
+        (1) useEffect 사용법 <br />
+        <button onClick={handleCountUpdate}>Update</button>
+        <span>count: {count}</span>
+        <input type="text" value={name} onChange={handleInputChange} />
+        <span>{name}</span>
+      </div>
+      <br />
+
+      <div>
+        (2) cleanUp 사용법 <br />
+        {showTimer && <Timer />} {/* showTimer가 true일때만 */}
+        <button onClick={() => setShowTimer(!showTimer)}>Toggle Timer</button>
+      </div>
     </div>
   );
 }
