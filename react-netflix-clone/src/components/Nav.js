@@ -20,6 +20,8 @@ export default function Nav() {
   });
 
   return (
+    // show===True: nav nav__black
+    // show===False: nav False
     <nav className={`nav ${show && "nav__black"}`}>
       <img
         alt="Netflix logo"

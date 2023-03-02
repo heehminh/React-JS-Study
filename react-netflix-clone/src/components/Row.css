@@ -2,18 +2,15 @@
   margin-left: 20px;
   color: white;
 }
-
 h2 {
   padding-left: 20px;
 }
-
 .slider {
   position: relative;
 }
-
 .slider__arrow-left {
-  padding: 20px 0;
   background-clip: content-box;
+  padding: 20px 0;
   box-sizing: border-box;
   transition: 400ms all ease-in-out;
   cursor: pointer;
@@ -28,7 +25,6 @@ h2 {
   justify-content: center;
   visibility: hidden;
 }
-
 .slider__arrow-right {
   padding: 20px 0;
   background-clip: content-box;
@@ -46,16 +42,13 @@ h2 {
   justify-content: center;
   visibility: hidden;
 }
-
 .arrow {
   transition: 400ms all ease-in-out;
 }
-
 .arrow:hover {
   transition: 400ms all ease-in-out;
   transform: scale(1.5);
 }
-
 .slider:hover .slider__arrow-left {
   transition: 400ms all ease-in-out;
   visibility: visible;
@@ -83,7 +76,6 @@ h2 {
 .row__posters::-webkit-scrollbar {
   display: none;
 }
-
 .row__poster {
   object-fit: contain;
   width: 100%;
@@ -95,7 +87,6 @@ h2 {
 .row__poster:hover {
   transform: scale(1.08);
 }
-
 .row__posterLarge {
   max-height: 320px;
 }
@@ -124,7 +115,6 @@ h2 {
   display: flex;
   align-items: center;
 }
-
 @media screen and (min-width: 1200px) {
   .row__poster {
     max-height: 160px;
