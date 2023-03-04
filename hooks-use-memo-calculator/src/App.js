@@ -39,7 +39,7 @@ function App() {
         value={easyNumber}
         onChange={(e) => setEasyNumber(parseInt(e.target.value))}
       />
-      <span> + 10000 = {easySum} </span>
+      <span> + 1 = {easySum} </span>
     </div>
   );
 }
