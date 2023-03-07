@@ -1,19 +1,9 @@
-import { useEffect, useState } from "react";
+import { useFetch } from "./useFetch";
 
 const baseUrl = "https://jsonplaceholder.typicode.com";
 
 function App() {
-  const [data, setData] = useState(null);
-
-  const fetchUrl = (type) => {
-    fetch(baseUrl + "/" + type)
-      .then((res) => res.json())
-      .then((res) => setData(res));
-  };
-
-  useEffect(() => {
-    fetchUrl("users");
-  }, []);
+  const { data, fetchUrl } = useFetch(baseUrl, "users");
 
   return (
     <div>
