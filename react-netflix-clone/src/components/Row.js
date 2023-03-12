@@ -16,12 +16,12 @@ export default function Row({ isLargeRow, title, id, fetchUrl }) {
 
   useEffect(() => {
     fetchMovieData();
-  }, [fetchUrl]);
+  }, []);
 
   const fetchMovieData = async () => {
     const request = await axios.get(fetchUrl);
     setMovies(request.data.results);
-    return request;
+    // return request;
   };
 
   const handleClick = (movie) => {
@@ -56,29 +56,27 @@ export default function Row({ isLargeRow, title, id, fetchUrl }) {
           },
         }}
       >
-        <div className="slider">
-          <div id={id} className="row__posters">
-            {movies.map((movie) => (
-              <SwiperSlide>
-                <img
-                  key={movie.id}
-                  onClick={() => handleClick(movie)}
-                  className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-                  src={`https://image.tmdb.org/t/p/original/${
-                    isLargeRow ? movie.poster_path : movie.backdrop_path
-                  }`}
-                  loading="lazy"
-                  alt={movie.name}
-                />
-              </SwiperSlide>
-            ))}
-          </div>
-
-          {modalOpen && (
-            <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
-          )}
+        <div id={id} className="row__posters">
+          {movies.map((movie) => (
+            <SwiperSlide>
+              <img
+                key={movie.id}
+                onClick={() => handleClick(movie)}
+                className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+                src={`https://image.tmdb.org/t/p/original/${
+                  isLargeRow ? movie.poster_path : movie.backdrop_path
+                }`}
+                loading="lazy"
+                alt={movie.name}
+              />
+            </SwiperSlide>
+          ))}
         </div>
       </Swiper>
+
+      {modalOpen && (
+        <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
+      )}
     </section>
   );
 }
