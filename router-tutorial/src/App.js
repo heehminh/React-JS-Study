@@ -1,11 +1,13 @@
 import React from "react";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, useLocation } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
 import Profiles from "./Profiles";
 import HistorySample from "./HistorySample";
 
 const App = () => {
+  const { pathname } = useLocation();
+
   return (
     <div>
       <ul>
@@ -28,6 +30,10 @@ const App = () => {
         <Route path="/about" Component={About} />
         <Route path="/profiles/*" Component={Profiles} />
         <Route path="/history" Component={HistorySample} />
+        <Route
+          path="/*"
+          element={<h1>이 페이지는 존재하지 않습니다. - {pathname}</h1>}
+        ></Route>
       </Routes>
     </div>
   );
