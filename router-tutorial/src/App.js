@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
+import Profile from "./Profile";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/about" Component={About} />
+        <Route path="/profiles/:username" Component={Profile} />
       </Routes>
     </div>
   );
