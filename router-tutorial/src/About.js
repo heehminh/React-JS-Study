@@ -2,7 +2,7 @@ import React from "react";
 // import qs from "qs"; => react-router-dom v6이상은 qs사용하지않음
 import { useSearchParams } from "react-router-dom";
 
-const About = ({ location }) => {
+const About = () => {
   const [searchParams] = useSearchParams();
   const detail = searchParams.get("detail") === "true";
 
