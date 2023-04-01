@@ -8,6 +8,7 @@ const Profiles = () => {
     <div>
       <h3>유저 목록:</h3>
       <ul>
+        {/* NavLink: Link에서 사용하는 경로가 일치하는 경우 특정 스타일, 클래스를 적용 */}
         <li>
           <Link to="/profiles/anna">anna</Link>
         </li>
