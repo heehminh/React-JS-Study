@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const HistorySample = ({ history }) => {
+// v6에서는 navigate 로 대체한다
+const HistorySample = () => {
   const navigate = useNavigate();
 
   const goBack = () => {
