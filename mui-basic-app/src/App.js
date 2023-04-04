@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
 function Header() {
   return (
@@ -26,9 +27,11 @@ function Article() {
       <h2>Welcome</h2>
       Hello Web!
       <br />
-      <Button variant="outlined">Create</Button>
-      <Button variant="contained">Update</Button>
-      <Button variant="text">Delete</Button>
+      <ButtonGroup>
+        <Button variant="outlined">Create</Button>
+        <Button variant="outlined">Update</Button>
+      </ButtonGroup>
+      <Button variant="outlined">Delete</Button>
     </article>
   );
 }
