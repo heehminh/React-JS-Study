@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 
 function Header() {
   return (
@@ -14,7 +19,7 @@ function Header() {
 
 function Nav() {
   return (
-    <nav style={{ border: "1px solid gray" }}>
+    <nav>
       <ol>
         <li>html</li>
         <li>css</li>
@@ -24,28 +29,43 @@ function Nav() {
 }
 
 function Article() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <article style={{ border: "1px solid gray" }}>
+    <article>
       <h2>Welcome</h2>
       RTK Query takes inspiration from many other data fetching libraries in the
-      ecosystem. Much like the Redux core library was inspired by tools like
-      Flux and Elm, RTK Query builds on API design patterns and feature concepts
-      popularized by libraries like React Query, SWR, Apollo, and Urql. RTK
-      Query has been written from scratch, but tries to use the best concepts
-      from those libraries and other data fetching tools, with an eye towards
-      leveraging the unique strengths and capabilities of Redux. We think that
-      all of those tools are great! If you're using one of them, you're happy
-      with it, and it solves the problems you are facing in your app, keep using
-      that tool. The information on this page is meant to help show where there
-      are differences in features, implementation approaches, and API design.
-      The goal is to help you make informed decisions and understand tradeoffs,
-      rather than argue that tool X is better than tool Y.
+      ecosystem.
       <br />
       <ButtonGroup>
-        <Button variant="outlined">Create</Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Create
+        </Button>
         <Button variant="outlined">Update</Button>
       </ButtonGroup>
       <Button variant="outlined">Delete</Button>
+      <Dialog open={open}>
+        <DialogTitle>Create</DialogTitle>
+        <DialogContent>
+          <DialogContentText>Hello Create!</DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button variant="outlined">Create</Button>
+          <Button
+            variant="outlined"
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            Cancel
+          </Button>
+        </DialogActions>
+      </Dialog>
     </article>
   );
 }
