@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, Link, useLocation } from "react-router-dom";
+import { Route, Routes, Link, useLocation, NavLink } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
 import Profiles from "./Profiles";
@@ -15,15 +15,22 @@ const App = () => {
           <Link to="/">홈</Link>
         </li>
         <li>
-          <Link to="/about">소개</Link>
+          <NavLink
+            to="/about"
+            style={({ isActive }) => ({ color: isActive ? "red" : "green" })}
+          >
+            About Us
+          </NavLink>
         </li>
         <li>
           <Link to="/profiles">프로필 목록</Link>
         </li>
+
         <li>
           <Link to="/history">예제</Link>
         </li>
       </ul>
+
       <hr />
       <Routes>
         <Route path="/" Component={Home} />
